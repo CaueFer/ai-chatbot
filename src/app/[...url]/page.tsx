@@ -1,3 +1,4 @@
+import { ChatWrapper } from "@/components/chatWrapper";
 import { ragChat } from "@/lib/rag-chat";
 import { redis } from "@/lib/redis";
 import React from "react";
@@ -35,7 +36,7 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
   }
 
   return (
-    <ChatWrapper />
+    <ChatWrapper sessionId={sessionId}/>
   );
 };
 
