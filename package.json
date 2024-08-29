@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/input": "^2.2.4",
     "@nextui-org/react": "^2.4.6",
+    "@nextui-org/system": "^2.2.5",
+    "@nextui-org/theme": "^2.2.9",
     "@upstash/rag-chat": "^1.5.0",
     "ai": "^3.3.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.3.31",
     "lucide-react": "^0.436.0",
     "next": "14.2.7",
     "react": "^18",
