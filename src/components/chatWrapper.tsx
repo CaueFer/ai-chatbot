@@ -2,7 +2,7 @@
 
 import { Message, useChat } from "ai/react";
 import { Messages } from "./Messages";
-import { ChatInput } from "./ChatInput";
+import { ChatInput } from "./ui/ChatInput";
 
 export const ChatWrapper = ({ sessionId, initialMessages }: { sessionId: string, initialMessages: Message[]}) => {
   const { messages, handleInputChange, handleSubmit, input, setInput } = useChat({
