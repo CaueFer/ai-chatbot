@@ -20,14 +20,20 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
   const sessionCookie = cookies().get("sessionId")?.value;
   const reconstructUrl = fullUrl({ url: params.url as string[] });
 
-  const sessionId = (reconstructUrl + "--" + sessionCookie).replaceAll(/\//g, "");
+  const sessionId = (reconstructUrl + "--" + sessionCookie).replaceAll(
+    /\//g,
+    ""
+  );
 
   const isAlreadyIndexed = await redis.sismember(
     "indexed-urls",
     reconstructUrl
   );
 
-  const initialMessages = await ragChat.history.getMessages({amount: 10, sessionId })
+  const initialMessages = await ragChat.history.getMessages({
+    amount: 10,
+    sessionId,
+  });
 
   if (!isAlreadyIndexed) {
     await ragChat.context.add({
@@ -40,7 +46,7 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
   }
 
   return (
-    <ChatWrapper sessionId={sessionId} initialMessages={initialMessages}/>
+    <ChatWrapper sessionId={sessionId} initialMessages={initialMessages} />
   );
 };
 

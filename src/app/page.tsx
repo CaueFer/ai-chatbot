@@ -1,6 +1,7 @@
 "use client";
 
 import { HeroSection } from "@/components/HeroSection";
+import NavTopBar from "@/components/NavTopBar";
 import { VanishInput } from "@/components/ui/VanishInput";
 
 export default function Home() {
@@ -21,21 +22,24 @@ export default function Home() {
   };
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center  bg-black">
-      <HeroSection id="scrollDiv" />
+    <>
+      <NavTopBar />
+      <section className="flex min-h-screen flex-col items-center justify-center  bg-black">
+        <HeroSection id="scrollDiv" />
 
-      <div className="relative w-full z-50 flex flex-col   justify-center snap-mandatory snap-x">
-        <div
-          id="targetDiv"
-          className="w-full flex flex-col gap-4 h-[50vh] py-20 bg-transparent absolute bottom-0 z-50 bg-black backdrop-blur-sm snap-center"
-        >
-          <VanishInput
-            placeholders={placeholders}
-            onChange={handleChange}
-            onSubmit={onSubmit}
-          />
+        <div className="relative w-full z-50 flex flex-col justify-center">
+          <div
+            id="targetDiv"
+            className="w-full flex flex-col gap-4 h-[50vh] py-20 bg-transparent absolute bottom-0 z-50 bg-black backdrop-blur-sm snap-center"
+          >
+            <VanishInput
+              placeholders={placeholders}
+              onChange={handleChange}
+              onSubmit={onSubmit}
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
