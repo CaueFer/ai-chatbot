@@ -1,6 +1,6 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HeroSectionBg } from "./ui/HeroSectionBg";
 
 interface HeroSectionProps {
@@ -8,12 +8,12 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ id }: HeroSectionProps) {
-  const ref = React.useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-
+  
   const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
   const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
   const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
@@ -21,7 +21,11 @@ export function HeroSection({ id }: HeroSectionProps) {
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <div className="h-[400vh] bg-black w-full relative overflow-clip" ref={ref} id={id}>
+    <div
+      className="h-[400vh] bg-black w-full relative overflow-clip"
+      ref={ref}
+      id={id}
+    >
       <HeroSectionBg
         title="RESOOOMER IA"
         description="Obtenha um resumo instantâneo com IA."
