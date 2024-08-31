@@ -54,11 +54,11 @@ export const Messages = ({ messages, isLoadingMessage }: MessagesProps) => {
           </p>
 
           <div className="w-full flex justify-center items-center gap-10 mt-5">
-            <div className="p-4 flex flex-col gap-4 rounded-lg border border-blue-400 w-[160px] hover:bg-blue-400/[0.05] h-[120px] text-white text-sm cursor-pointer">
+            <div className="p-4 flex flex-col justify-center gap-4 rounded-lg border border-blue-400 w-[160px] hover:bg-blue-400/[0.05] h-[120px] text-white text-sm cursor-pointer">
               <BookOpenText size={20} />
               GERAR RESUMO DO SITE.
             </div>
-            <div className="p-4 flex flex-col gap-4 rounded-lg border border-blue-400 w-[160px] hover:bg-blue-400/[0.05] h-[120px] text-white text-sm cursor-pointer">
+            <div className="p-4 flex flex-col justify-center gap-4 rounded-lg border border-blue-400 w-[160px] hover:bg-blue-400/[0.05] h-[120px] text-white text-sm cursor-pointer">
               <BookCopy size={20} />
               FAZER TÓPICOS DO SITE.
             </div>

@@ -38,7 +38,6 @@ export default function NavTopBar() {
           <Link href="/" className="font-bold text-inherit">
             RESOOOMER
           </Link>
-          <Link />
         </NavbarBrand>
       </NavbarContent>
 
@@ -56,7 +55,6 @@ export default function NavTopBar() {
         </NavbarItem>
         <NavbarItem>
           <Button
-            as={Link}
             color="default"
             href="#"
             variant="flat"
