@@ -39,7 +39,7 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
     await ragChat.context.add({
       type: "html",
       source: reconstructUrl,
-      config: { chunkOverlap: 50, chunkSize: 150 },
+      config: { chunkOverlap: 40, chunkSize: 150 },
     });
     
     await ragChat.context.add({

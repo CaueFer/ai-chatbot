@@ -7,9 +7,10 @@ import { useEffect, useRef } from "react";
 
 interface MessagesProps {
   messages: TMessage[];
+  isLoadingMessage: boolean;
 }
 
-export const Messages = ({ messages }: MessagesProps) => {
+export const Messages = ({ messages, isLoadingMessage }: MessagesProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,13 +26,22 @@ export const Messages = ({ messages }: MessagesProps) => {
       className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto scroll-smooth"
     >
       {messages.length ? (
-        messages.map((message, i) => (
-          <Message
-            key={i}
-            content={message.content}
-            isUserMessage={message.role === "user"}
-          />
-        ))
+        <>
+          {messages.map((message, i) => (
+            <Message
+              key={i}
+              content={message.content}
+              isUserMessage={message.role === "user"}
+            />
+          ))}
+          {isLoadingMessage && (
+            <Message
+              key={"loading"}
+              content={"loading"}
+              isUserMessage={false}
+            />
+          )}
+        </>
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center gap-2">
           <MessageSquare className="size-10 text-blue-500" />
