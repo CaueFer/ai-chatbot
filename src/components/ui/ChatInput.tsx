@@ -21,6 +21,14 @@ export const ChatInput = ({
   input,
   setInput,
 }: ChatInputProps) => {
+
+  const handleSubmitInterceptor = () => {
+
+    if(input.length <= 0) return;
+
+    handleSubmit();
+  }
+
   return (
     <div className="z-10 bg-zinc-900 absolte bottom-0 left-0 w-full">
       <div className="mx-2 flex flex-row gap-3 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
@@ -34,7 +42,7 @@ export const ChatInput = ({
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
 
-                    handleSubmit();
+                    handleSubmitInterceptor();
                     setInput("");
                   }
                 }}
@@ -46,8 +54,14 @@ export const ChatInput = ({
 
               <Button
                 size="sm"
-                type="submit"
+                type="button"
                 className="absolute z-10 border border-border bg-zinc-900 right-2 bottom-2"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  handleSubmitInterceptor();
+                  setInput("");
+                }}
               >
                 <Send className="size-4" />
               </Button>

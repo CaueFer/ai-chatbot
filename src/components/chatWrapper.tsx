@@ -13,7 +13,7 @@ export const ChatWrapper = ({
   sessionId: string;
   initialMessages: Message[];
 }) => {
-  const [isLoadingMessage, setIsLoadingMessage] = useState(true);
+  const [isLoadingMessage, setIsLoadingMessage] = useState(false);
 
   const {
     messages,
@@ -31,22 +31,26 @@ export const ChatWrapper = ({
   const handleSubmitInterceptor = () => {
     setIsLoadingMessage(true);
 
+    console.log(messages)
 
-    //handleSubmit();
+    handleSubmit();
 
-    new Promise<void>((resolve) => {
-      setTimeout(() => {
-        setMessages((prev: Message[]) => [
-          ...prev,
-          {
-            content: "TESTE OLA TESTE OLA TSTE OLA TESTE OLA TESTE",
-            role: "system",
-            id: "000",
-          },
-        ]);
-        resolve();
-      }, 4000);
-    });
+
+    // FUNCAO TESTES;
+    
+    // new Promise<void>((resolve) => {
+    //   setTimeout(() => {
+    //     setMessages((prev: Message[]) => [
+    //       ...prev,
+    //       {
+    //         content: "TESTE OLA TESTE OLA TSTE OLA TESTE OLA TESTE",
+    //         role: "system",
+    //         id: "000",
+    //       },
+    //     ]);
+    //     resolve();
+    //   }, 4000);
+    // });
   };
 
   useEffect(() => {

@@ -47,7 +47,7 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
               </span>
             </div>
 
-            <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+            <div className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
               {content === "loading" ? (
                 <section className="dots-container">
                   <div className="dot"></div>
@@ -57,7 +57,7 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
               ) : (
                 content
               )}
-            </p>
+            </div>
           </div>
         </div>
       </div>
