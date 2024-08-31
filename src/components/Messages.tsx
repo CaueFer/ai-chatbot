@@ -1,14 +1,29 @@
+"use client";
+
 import { type Message as TMessage } from "ai/react";
 import { Message } from "./Message";
 import { MessageSquare } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 interface MessagesProps {
   messages: TMessage[];
 }
 
 export const Messages = ({ messages }: MessagesProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
+  }, []);
+
   return (
-    <div className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto">
+    <div
+      ref={containerRef}
+      className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto"
+    >
       {messages.length ? (
         messages.map((message, i) => (
           <Message
@@ -19,10 +34,10 @@ export const Messages = ({ messages }: MessagesProps) => {
         ))
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center gap-2">
-          <MessageSquare className="size-8 text-blue-500" />
-          <h3 className="font-semibold text-xl text-white">You're all set!</h3>
-          <p className="text-zinc-500 text-sm">
-            Ask your first question to get started.
+          <MessageSquare className="size-10 text-blue-500" />
+          <h3 className="font-semibold text-2xl text-white">Tudo pronto!</h3>
+          <p className="text-zinc-500 text-xl">
+            Faça sua primeira pergunta para começar.
           </p>
         </div>
       )}

@@ -23,7 +23,7 @@ export default function NavLeftBar() {
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: ["relative h-full items-start "],
+        base: ["relative h-full items-start bg-gradient-to-tr from-black to-[#171717]"],
         wrapper: ["py-4 h-full flex flex-col justify-between items-center"],
       }}
     >

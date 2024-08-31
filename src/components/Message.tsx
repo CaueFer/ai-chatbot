@@ -14,8 +14,12 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
         "bg-zing-900/25": !isUserMessage,
       })}
     >
-      <div className="p-6 ">
-        <div className="max-w-3xl mx-auto flex items-start gap-2.5">
+      <div className="p-6">
+        <div
+          className={cn("max-w-3xl mx-auto flex items-start gap-2.5", {
+            "flex-row-reverse": isUserMessage,
+          })}
+        >
           <div
             className={cn(
               "size-10 shrink-0 aspect-square rounded-full border border-zinc-700 bg-zinc-900 flex justify-center items-center",
@@ -31,14 +35,21 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
             )}
           </div>
 
-          <div className="flex flex-col ml-6 w-full">
+          <div
+            className={cn("flex flex-col justify-end w-auto p-4", {
+              "items-end mr-6 bg-[#3F3F46] rounded-md": isUserMessage,
+              "items-start ml-6": !isUserMessage,
+            })}
+          >
             <div className="flex items-center space-x-2">
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                {isUserMessage ? "You" : "Website"}
+                {isUserMessage ? "Você" : "Website"}
               </span>
             </div>
 
-            <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{content}</p>
+            <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+              {content}
+            </p>
           </div>
         </div>
       </div>
