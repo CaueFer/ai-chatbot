@@ -23,7 +23,9 @@ export default function NavLeftBar() {
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: ["relative h-full items-start bg-gradient-to-tr from-black to-[#171717]"],
+        base: [
+          "relative h-full items-start bg-gradient-to-tr from-black to-[#171717]",
+        ],
         wrapper: ["py-4 h-full flex flex-col justify-between items-center"],
       }}
     >
@@ -52,15 +54,10 @@ export default function NavLeftBar() {
 
       <NavbarContent justify="center" className="h-10">
         <NavbarItem className="flex">
-          <Link href="javascript:void(0)">Login</Link>
+          <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button
-            as={Link}
-            color="default"
-            href="javascript:void(0)"
-            variant="flat"
-          >
+          <Button as={Link} color="default" href="#" variant="flat">
             Cadastrar
           </Button>
         </NavbarItem>

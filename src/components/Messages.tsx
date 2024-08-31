@@ -17,12 +17,12 @@ export const Messages = ({ messages }: MessagesProps) => {
     if (container) {
       container.scrollTop = container.scrollHeight;
     }
-  }, []);
+  }, [messages]);
 
   return (
     <div
       ref={containerRef}
-      className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto"
+      className="flex max-h-[calc(100vh-3.5rem-7rem)] flex-1 flex-col overflow-y-auto scroll-smooth"
     >
       {messages.length ? (
         messages.map((message, i) => (

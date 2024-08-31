@@ -39,7 +39,12 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
     await ragChat.context.add({
       type: "html",
       source: reconstructUrl,
-      config: { chunkOverlap: 50, chunkSize: 300 },
+      config: { chunkOverlap: 50, chunkSize: 150 },
+    });
+    
+    await ragChat.context.add({
+      type: "text",
+      data: "Responder as perguntas em pt-br, se o usuario falar em ingles tudo bem mudar para ingles, ou outra lingua.",
     });
 
     await redis.sadd("indexed-urls", reconstructUrl);
