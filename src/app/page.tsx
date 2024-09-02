@@ -49,25 +49,25 @@ export default function Home() {
   return (
     <>
       <NavTopBar />
-      <section className="flex min-h-screen flex-col items-center justify-center bg-black">
+      <section className="flex min-h-screen w-screen flex-col items-center justify-center bg-black relative overflox-x-clip">
         <HeroSection id="scrollDiv" />
 
         <div className="relative w-full z-50 flex flex-col justify-center">
           <div
             id="targetDiv"
-            className="w-full flex flex-col justify-start gap-4 h-[52vh] py-14 bg-transparent absolute bottom-0 z-50 bg-black backdrop-blur-sm snap-center"
+            className="w-full flex flex-col justify-start gap-4 h-[57vh] md:h-[50vh] px-14 py-[3.25rem] md:py-14 bg-transparent absolute bottom-0 z-50 bg-black backdrop-blur-sm snap-center"
           >
             <VanishInput
               placeholders={placeholders}
               onChange={handleChange}
               onSubmit={onSubmit}
             >
-              <p className="text-sm text-start text-white/50 w-[576px] mx-auto pl-10 min-h-[20px]">
+              <p className="text-xs text-start text-white w-auto md:w-[576px] md:pl-10 mx-auto min-h-[20px]">
                 {errorMsg}
               </p>
             </VanishInput>
             <button
-              className="font-bold flex flex-row gap-3 items-center justify-center bg-white rounded-full md:px-4 md:py-2 px-2 py-1 mt-[22px] z-30 md:text-base text-black text-xs  w-fit min-w-[134px] mx-auto "
+              className="font-bold flex flex-row gap-3 items-center justify-center bg-white rounded-full px-4 py-2 mt-[22px] z-30 md:text-base text-black  w-fit min-w-[134px] mx-auto"
               onClick={scrollToTop}
             >
               VOLTAR
@@ -81,6 +81,7 @@ export default function Home() {
                 width="1em"
                 className="group-hover:translate-x-0.5 outline-none transition-transform rotate-[-90deg]"
                 tabIndex={-1}
+                aria-label="voltar"
               >
                 <path
                   d="M16.835 6.91821L23.9166 13.9999L16.835 21.0815"

@@ -187,7 +187,7 @@ export function VanishInput({
       >
         <canvas
           className={cn(
-            "absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
+            "absolute pointer-events-none text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
             !animating ? "opacity-0" : "opacity-100"
           )}
           ref={canvasRef}
@@ -204,7 +204,7 @@ export function VanishInput({
           value={value}
           type="text"
           className={cn(
-            "w-full relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20",
+            "w-full relative text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20",
             animating && "text-transparent dark:text-transparent"
           )}
         />
@@ -267,7 +267,7 @@ export function VanishInput({
                   duration: 0.3,
                   ease: "linear",
                 }}
-                className="dark:text-zinc-500 text-sm sm:text-base font-normal text-neutral-500 pl-4 sm:pl-12 text-left w-[calc(100%-2rem)] truncate"
+                className="dark:text-zinc-500 text-base font-normal text-neutral-500 pl-4 sm:pl-12 text-left w-[calc(100%-2rem)] truncate"
               >
                 {placeholders[currentPlaceholder]}
               </motion.p>

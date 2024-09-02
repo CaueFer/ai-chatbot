@@ -16,19 +16,25 @@ import {
 export default function NavTopBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Login", "Ajuda & Feedback"];
+  const menuItems = [
+    "Cadastrar-se",
+    "Planos",
+    "Ajuda & Feedback",
+    "Políticas e Privacidade",
+  ];
 
   return (
     <Navbar
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: ["fixed"],
+        base: ["fixed w-screen"],
         wrapper: ["py-4"],
       }}
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
+          className="p-3"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
@@ -51,15 +57,11 @@ export default function NavTopBar() {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="#">Cadastrar</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button
-            color="default"
-            href="#"
-            variant="flat"
-          >
-            Cadastrar
+          <Button color="default" href="#" variant="flat">
+            Login
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -67,7 +69,7 @@ export default function NavTopBar() {
       <NavbarMenu className="bg-black/5 backdrop-blur-sm py-8">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full text-white" href="#" size="lg">
+            <Link className="w-full text-white py-1" href="#" size="lg">
               {item}
             </Link>
           </NavbarMenuItem>

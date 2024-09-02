@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(roboto.className, "min-h-screen antialiased")}>
         <Providers>
-          <main className="h-screen dark text-foreground bg-background">
+          <main className="max-w-screen h-screen dark text-foreground bg-background relative">
             {children}
           </main>
         </Providers>
