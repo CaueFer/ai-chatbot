@@ -87,7 +87,7 @@
   margin-right: 10px;
   border-radius: 10px;
   background-color: #ffffff;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: pulsedots 1.5s infinite ease-in-out;
 }
 
 .dot:last-child {
@@ -106,7 +106,7 @@
   animation-delay: 0.1s;
 }
 
-@keyframes pulse {
+@keyframes pulsedots {
   0% {
     transform: scale(0.8);
     background-color: #ffffff;

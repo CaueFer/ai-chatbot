@@ -32,6 +32,8 @@ export const Messages = ({ messages, isLoadingMessage }: MessagesProps) => {
               key={i}
               content={message.content}
               isUserMessage={message.role === "user"}
+              isErrorMessage={message.role === "error"}
+              isLoadingMessage={message.role === "loading"}
             />
           ))}
           {isLoadingMessage && (

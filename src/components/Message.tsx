@@ -1,12 +1,18 @@
 import { cn } from "@/lib/utils";
-import { Bot, User } from "lucide-react";
+import { Bot, ShieldX, User } from "lucide-react";
 
 interface MessageProps {
   content: string;
-  isUserMessage: boolean;
+  isUserMessage?: boolean;
+  isErrorMessage?: boolean;
+  isLoadingMessage?: boolean;
 }
 
-export const Message = ({ content, isUserMessage }: MessageProps) => {
+export const Message = ({
+  content,
+  isUserMessage = false,
+  isErrorMessage = false,
+}: MessageProps) => {
   return (
     <div
       className={cn({
@@ -30,6 +36,8 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
           >
             {isUserMessage ? (
               <User className="size-5" />
+            ) : isErrorMessage ? (
+              <ShieldX className="size-5 text-red-500" />
             ) : (
               <Bot className="size-5 text-white" />
             )}

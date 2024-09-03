@@ -22,6 +22,7 @@ export const ChatWrapper = ({
     handleSubmit,
     input,
     setInput,
+    error,
   } = useChat({
     api: "/api/chat-stream",
     body: { sessionId },
@@ -31,13 +32,11 @@ export const ChatWrapper = ({
   const handleSubmitInterceptor = () => {
     setIsLoadingMessage(true);
 
-    console.log(messages)
+    setInput((prev) => prev + " responda tudo em pt-br.");
 
     handleSubmit();
 
-
     // FUNCAO TESTES;
-    
     // new Promise<void>((resolve) => {
     //   setTimeout(() => {
     //     setMessages((prev: Message[]) => [
@@ -56,6 +55,22 @@ export const ChatWrapper = ({
   useEffect(() => {
     if (messages.at(-1)?.role !== "user") setIsLoadingMessage(false);
   }, [messages]);
+
+  useEffect(() => {
+    if (error) {
+      setIsLoadingMessage(false);
+
+      const id: string = Math.floor(Math.random() * 100).toString();
+      setMessages((prev: Message[]) => [
+        ...prev,
+        {
+          content: "Limite diário atingido!",
+          role: "error",
+          id: id,
+        },
+      ]); 
+    }
+  }, [error]);
 
   return (
     <div className="flex min-h-full min-w-screen">
