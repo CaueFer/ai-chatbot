@@ -12,6 +12,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+import { GalleryVerticalEnd, MessageSquare } from "lucide-react";
 
 export default function NavLeftBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -52,26 +53,28 @@ export default function NavLeftBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent justify="center" className="h-10">
-        <NavbarItem className="flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="default" href="#" variant="flat">
-            Cadastrar
-          </Button>
+      <NavbarContent className="w-full gap-4 h-10 text-white" justify="center">
+        <NavbarItem className="max-w-full flex flex-col text-center justify-center items-center truncate gap-4">
+          <GalleryVerticalEnd className="size-10 text-white" />
+          <h3 className="font-semibold text-xl text-white  ">
+            Histórico de Chats
+          </h3>
+          <p className="text-zinc-400 text-md text-pretty">
+            Faça LOGIN para ver histórico.
+          </p>
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu className="bg-black/5 backdrop-blur-sm py-8">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full text-white" href="#" size="lg">
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
+      <NavbarContent justify="center" className="h-10 py-10 w-full">
+        <NavbarItem className="flex">
+          <Link href="#">Cadastrar</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color="default" href="#" variant="flat">
+            Login
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
     </Navbar>
   );
 }

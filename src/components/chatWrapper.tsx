@@ -15,6 +15,10 @@ export const ChatWrapper = ({
 }) => {
   const [isLoadingMessage, setIsLoadingMessage] = useState(false);
 
+  const [disableChatInput, setDisableChatInput] = useState(false);
+
+  const [formattedMessages, setFormattedMessages] = useState<Message[]>([]);
+
   const {
     messages,
     setMessages,
@@ -57,8 +61,22 @@ export const ChatWrapper = ({
   }, [messages]);
 
   useEffect(() => {
+    const formatted = messages.map((message) => {
+      let content = message.content
+        .replace(/\*\*(.*?)\*\*/g, "<h2>$1</h2>") 
+        .replace(/\n/g, "<br>") 
+        .replace(/\*(.*?)\*/g, "<strong>$1</strong>");
+
+      return { ...message, content: content };
+    });
+
+    setFormattedMessages(formatted);
+  }, [messages]);
+
+  useEffect(() => {
     if (error) {
       setIsLoadingMessage(false);
+      setDisableChatInput(true);
 
       const id: string = Math.floor(Math.random() * 100).toString();
       setMessages((prev: Message[]) => [
@@ -68,9 +86,16 @@ export const ChatWrapper = ({
           role: "error",
           id: id,
         },
-      ]); 
+      ]);
     }
+    else setDisableChatInput(false);
   }, [error]);
+
+  useEffect(() => {
+    setDisableChatInput(false);
+
+    console.log('ativei dnv')
+  }, [])
 
   return (
     <div className="flex min-h-full min-w-screen">
@@ -80,7 +105,10 @@ export const ChatWrapper = ({
 
       <div className="relative min-h-full flex-grow bg-zinc-900 flex divide-y divide-zinc-700 flex-col justify-between gap-2">
         <div className="flex-1 text-white bg-zinc-900 justify-between flex flex-col">
-          <Messages messages={messages} isLoadingMessage={isLoadingMessage}/>
+          <Messages
+            messages={formattedMessages}
+            isLoadingMessage={isLoadingMessage}
+          />
         </div>
 
         <ChatInput
@@ -88,6 +116,7 @@ export const ChatWrapper = ({
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmitInterceptor}
           setInput={setInput}
+          disable={disableChatInput}
         />
       </div>
     </div>

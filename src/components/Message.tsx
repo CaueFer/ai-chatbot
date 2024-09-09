@@ -63,7 +63,7 @@ export const Message = ({
                   <div className="dot"></div>
                 </section>
               ) : (
-                content
+                <div dangerouslySetInnerHTML={{ __html: content }} />
               )}
             </div>
           </div>

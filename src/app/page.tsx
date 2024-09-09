@@ -55,7 +55,7 @@ export default function Home() {
       
       setTimeout(() => {
         setIsLoading(false);
-      }, 10000)
+      }, 20000)
     } catch (_) {
       setErrorMsg("Por favor, insira um link válido.");
       setIsLoading(false);

@@ -37,9 +37,14 @@ const chatbotPage = async ({ params }: chatbotPageProps) => {
 
   if (!isAlreadyIndexed) {
     await ragChat.context.add({
+      type: "text",
+      data: ' Responda tudo em pt-br'
+    });
+
+    await ragChat.context.add({
       type: "html",
       source: reconstructUrl,
-      config: { chunkOverlap: 40, chunkSize: 150 },
+      config: { chunkOverlap: 40, chunkSize: 200 },
     });
 
     await redis.sadd("indexed-urls", reconstructUrl);

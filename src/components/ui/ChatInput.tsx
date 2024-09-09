@@ -13,6 +13,7 @@ interface ChatInputProps {
   handleInputChange: HandleInputChange;
   handleSubmit: HandleSubmit;
   setInput: SetInput;
+  disable: boolean;
 }
 
 export const ChatInput = ({
@@ -20,6 +21,7 @@ export const ChatInput = ({
   handleSubmit,
   input,
   setInput,
+  disable = false,
 }: ChatInputProps) => {
 
   const handleSubmitInterceptor = () => {
@@ -50,12 +52,14 @@ export const ChatInput = ({
                 autoFocus
                 placeholder="Faca sua pergunta..."
                 className="resize-none bg-zinc-800 hover:bg-zinc-900 rounded-xl text-base"
+                disabled={disable}
               />
 
               <Button
                 size="sm"
                 type="button"
                 className="absolute z-10 border border-border bg-zinc-900 right-2 bottom-2"
+                disabled={disable}
                 onClick={(e) => {
                   e.preventDefault();
 
